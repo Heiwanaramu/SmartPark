@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_bg">#0F0F1A</color> <!-- Deep Midnight -->
+    <color name="dark_surface">#1E1E2E</color>
+
+    <!-- Fun Liquid Colors -->
+    <color name="liquid_purple">#BB86FC</color>
+    <color name="liquid_pink">#FF79C6</color>
+    <color name="liquid_cyan">#8BE9FD</color>
+    <color name="liquid_neon_green">#50FA7B</color>
+
+    <color name="glass_white_10">#1AFFFFFF</color>
+    <color name="glass_white_20">#33FFFFFF</color>
+    <color name="glass_white_30">#4DFFFFFF</color>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_bg"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvParkingSlots"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingBottom="140dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_parking_slot" />
+
+    <!-- Expressive Liquid Glass Navigation with Equal Bezels -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical">
+
+        <!-- Outer Oval (Equal Bezels) -->
+        <FrameLayout
+            android:layout_width="216dp"
+            android:layout_height="64dp"
+            android:background="@drawable/glass_pill_bg"
+            android:elevation="24dp">
+
+            <!-- Inner Oval (Centered with Equal 8dp Bezels) -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/glass_pill_bg"
+                android:backgroundTint="#20000000"
+                app:tabIndicator="@drawable/glass_pill_bg"
+                app:tabIndicatorColor="@color/liquid_neon_green"
+                app:tabIndicatorGravity="center"
+                app:tabIndicatorHeight="40dp"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabRippleColor="@android:color/transparent"
+                app:tabSelectedTextColor="@color/black"
+                app:tabTextColor="@color/white"
+                app:tabTextAppearance="@android:style/TextAppearance.Small"
+                app:tabMaxWidth="0dp"
+                app:tabGravity="fill"
+                app:tabMode="fixed">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="List" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Map" />
+            </com.google.android.material.tabs.TabLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

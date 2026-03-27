@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SmartPark</string>
+    <string name="title_activity_main">SmartPark</string>
+    <string name="action_logout">Logout</string>
+    <string name="booking_successful">Booking successful!</string>
+    <string name="booking_failed">Booking failed</string>
+    <string name="failed_to_load_slots">Failed to load slots</string>
+</resources>
