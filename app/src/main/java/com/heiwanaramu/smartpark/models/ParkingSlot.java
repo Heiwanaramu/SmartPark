@@ -7,6 +7,9 @@ public class ParkingSlot {
     private double longitude;
     private boolean isAvailable;
     private double pricePerHour;
+    private boolean hasEVCharging;
+    private double trafficSafetyScore;
+    private boolean isRecommended;
 
     // Getters and Setters
     public String getId() { return id; }
@@ -26,4 +29,13 @@ public class ParkingSlot {
 
     public double getPricePerHour() { return pricePerHour; }
     public void setPricePerHour(double pricePerHour) { this.pricePerHour = pricePerHour; }
+
+    public boolean isHasEVCharging() { return hasEVCharging; }
+    public void setHasEVCharging(boolean hasEVCharging) { this.hasEVCharging = hasEVCharging; }
+
+    public double getTrafficSafetyScore() { return trafficSafetyScore; }
+    public void setTrafficSafetyScore(double trafficSafetyScore) { this.trafficSafetyScore = trafficSafetyScore; }
+
+    public boolean isRecommended() { return isRecommended; }
+    public void setRecommended(boolean recommended) { isRecommended = recommended; }
 }

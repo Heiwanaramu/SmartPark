@@ -4,8 +4,10 @@ public class User {
     private String id;
     private String name;
     private String email;
-    private String password; // Added for registration
-    private String role; // DRIVER, OWNER, or ADMIN
+    private String password;
+    private String role;
+    private String address;
+    private String phone;
 
     // Getters and Setters
     public String getId() { return id; }
@@ -22,4 +24,10 @@ public class User {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 }

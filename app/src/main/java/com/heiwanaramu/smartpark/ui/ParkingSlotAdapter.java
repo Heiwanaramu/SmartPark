@@ -41,8 +41,8 @@ public class ParkingSlotAdapter extends RecyclerView.Adapter<ParkingSlotAdapter.
         holder.tvSlotName.setText(slot.getName());
         holder.tvPrice.setText(String.format("Price: $%.2f/hr", slot.getPricePerHour()));
         holder.tvStatus.setText(slot.isAvailable() ? "Available" : "Occupied");
-        holder.tvStatus.setTextColor(slot.isAvailable() ? 
-            holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_dark) : 
+        holder.tvStatus.setTextColor(slot.isAvailable() ?
+            holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_dark) :
             holder.itemView.getContext().getResources().getColor(android.R.color.holo_red_dark));
         
         holder.btnBook.setEnabled(slot.isAvailable());

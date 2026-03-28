@@ -8,6 +8,9 @@ public class SessionManager {
     private static final String KEY_TOKEN = "auth_token";
     private static final String KEY_USER_ID = "user_id";
     private static final String KEY_USER_NAME = "user_name";
+    private static final String KEY_USER_EMAIL = "user_email";
+    private static final String KEY_USER_ADDRESS = "user_address";
+    private static final String KEY_USER_PHONE = "user_phone";
 
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
@@ -32,7 +35,7 @@ public class SessionManager {
     }
 
     public String getUserId() {
-        return prefs.getString(KEY_USER_ID, null);
+        return prefs.getString(KEY_USER_ID, "user123");
     }
 
     public void saveUserName(String name) {
@@ -41,7 +44,34 @@ public class SessionManager {
     }
 
     public String getUserName() {
-        return prefs.getString(KEY_USER_NAME, null);
+        return prefs.getString(KEY_USER_NAME, "John Doe");
+    }
+
+    public void saveUserEmail(String email) {
+        editor.putString(KEY_USER_EMAIL, email);
+        editor.apply();
+    }
+
+    public String getUserEmail() {
+        return prefs.getString(KEY_USER_EMAIL, "john.doe@example.com");
+    }
+
+    public void saveUserAddress(String address) {
+        editor.putString(KEY_USER_ADDRESS, address);
+        editor.apply();
+    }
+
+    public String getUserAddress() {
+        return prefs.getString(KEY_USER_ADDRESS, "123 Smart St, Tech City");
+    }
+
+    public void saveUserPhone(String phone) {
+        editor.putString(KEY_USER_PHONE, phone);
+        editor.apply();
+    }
+
+    public String getUserPhone() {
+        return prefs.getString(KEY_USER_PHONE, "+1 234 567 890");
     }
 
     public void logout() {

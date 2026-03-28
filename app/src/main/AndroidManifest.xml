@@ -15,10 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartPark">
 
-        <!--
-             TODO: Replace 'YOUR_API_KEY' with your actual Google Maps API Key.
-             Get one at: https://console.cloud.google.com/google/maps-apis/credentials
-        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_API_KEY" />
@@ -33,6 +29,9 @@
         </activity>
 
         <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.SettingsActivity" />
+        <activity android:name=".ui.ContributorsActivity" />
+        <activity android:name=".ui.EditProfileActivity" />
         <activity android:name=".MainActivity" />
 
     </application>

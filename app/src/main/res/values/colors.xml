@@ -2,10 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark_bg">#0F0F1A</color> <!-- Deep Midnight -->
-    <color name="dark_surface">#1E1E2E</color>
+    <color name="dark_bg">#0F0F1A</color>
+    <color name="miui_grey">#2C2C2E</color>
+    <color name="playful_violet">#8E5AFF</color>
+    <color name="playful_yellow">#FFD600</color>
 
-    <!-- Fun Liquid Colors -->
     <color name="liquid_purple">#BB86FC</color>
     <color name="liquid_pink">#FF79C6</color>
     <color name="liquid_cyan">#8BE9FD</color>
@@ -14,4 +15,8 @@
     <color name="glass_white_10">#1AFFFFFF</color>
     <color name="glass_white_20">#33FFFFFF</color>
     <color name="glass_white_30">#4DFFFFFF</color>
+
+    <!-- Tab colors -->
+    <color name="tab_text_color">#B3FFFFFF</color>
+    <color name="tab_selected_text_color">#000000</color>
 </resources>

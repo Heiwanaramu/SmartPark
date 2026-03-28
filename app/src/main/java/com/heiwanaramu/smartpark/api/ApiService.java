@@ -12,6 +12,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
     @FormUrlEncoded
@@ -31,6 +32,15 @@ public interface ApiService {
     @POST("api/book-slot")
     Call<Void> bookSlot(
             @Field("slotId") String slotId,
-            @Field("userId") String userId
+            @Field("userId") String userId,
+            @Field("amount") double amount
     );
+
+    @GET("api/owner/dashboard/{ownerId}")
+    Call<DashboardData> getOwnerDashboard(@Path("ownerId") String ownerId);
+
+    class DashboardData {
+        public double totalRevenue;
+        public int currentOccupancy;
+    }
 }

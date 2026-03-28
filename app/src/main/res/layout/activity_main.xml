@@ -5,73 +5,168 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_bg"
+    android:background="?attr/colorSurface"
     tools:context=".MainActivity">
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <!-- Full Screen Content Area -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvParkingSlots"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingTop="16dp"
-        android:paddingBottom="140dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_parking_slot" />
+        <!-- Section 1: Explore -->
+        <LinearLayout
+            android:id="@+id/cardExplore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-    <!-- Expressive Liquid Glass Navigation with Equal Bezels -->
+            <HorizontalScrollView
+                android:id="@+id/filterScroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:scrollbars="none"
+                android:background="?attr/colorSurface">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupFilters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    app:singleSelection="true">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipRecommended"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Best"
+                        android:checked="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCheapest"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cheap" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipSafest"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Safe" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvParkingSlots"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="140dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </LinearLayout>
+
+        <!-- Section 2: Map -->
+        <FrameLayout
+            android:id="@+id/cardMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <!-- Section 3: Insights -->
+        <FrameLayout
+            android:id="@+id/cardInsights"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="?attr/colorSurface">
+            <include layout="@layout/activity_owner_dashboard" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <!-- Robust Wide Solid Navigation Bar -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="24dp"
+        android:layout_gravity="bottom"
+        android:padding="8dp"
         android:orientation="vertical">
 
-        <!-- Outer Oval (Equal Bezels) -->
-        <FrameLayout
-            android:layout_width="216dp"
-            android:layout_height="64dp"
-            android:background="@drawable/glass_pill_bg"
-            android:elevation="24dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/ai_prompt_bg"
+            android:backgroundTint="?attr/colorSurfaceContainerHighest"
+            android:elevation="12dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:gravity="center_vertical">
 
-            <!-- Inner Oval (Centered with Equal 8dp Bezels) -->
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:background="@drawable/glass_pill_bg"
-                android:backgroundTint="#20000000"
-                app:tabIndicator="@drawable/glass_pill_bg"
-                app:tabIndicatorColor="@color/liquid_neon_green"
-                app:tabIndicatorGravity="center"
-                app:tabIndicatorHeight="40dp"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                app:tabIndicator="@drawable/ai_prompt_bg"
+                app:tabIndicatorColor="?attr/colorPrimary"
+                app:tabIndicatorGravity="stretch"
                 app:tabIndicatorFullWidth="true"
                 app:tabIndicatorAnimationMode="elastic"
                 app:tabRippleColor="@android:color/transparent"
-                app:tabSelectedTextColor="@color/black"
-                app:tabTextColor="@color/white"
-                app:tabTextAppearance="@android:style/TextAppearance.Small"
+                app:tabSelectedTextColor="@color/tab_selected_text_color"
+                app:tabTextColor="@color/tab_text_color"
+                app:tabPaddingStart="8dp"
+                app:tabPaddingEnd="8dp"
+                app:tabMinWidth="0dp"
                 app:tabMaxWidth="0dp"
-                app:tabGravity="fill"
+                app:tabTextAppearance="@style/TabTextAppearance"
                 app:tabMode="fixed">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="List" />
+                    android:text="Explore" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Map" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stats" />
             </com.google.android.material.tabs.TabLayout>
-        </FrameLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="?attr/colorOutlineVariant"
+                android:layout_marginHorizontal="12dp" />
+
+            <TextView
+                android:id="@+id/btnSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:paddingHorizontal="16dp"
+                android:gravity="center"
+                android:text="Settings"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/ai_prompt_bg"
+                android:backgroundTint="?attr/colorSurfaceContainerHigh" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <ProgressBar
